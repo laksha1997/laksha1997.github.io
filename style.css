@@ -1,0 +1,138 @@
+html {
+    font-size: 10px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+*,
+*::before
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-size: 1.5rem;
+    display: grid;
+    grid-template-areas: "header header" "main sidebar" "footer footer";
+    grid-template-columns: 1fr 200px;
+    gap: 20px;
+}
+
+.site-header {
+    grid-area: main;
+    padding: 16px;
+}
+
+.site-header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.site-header img {
+    max-width: 200px;
+}
+
+.site-header ul {
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.site-header ul li {
+    display: inline-block;
+}
+
+.site-header ul li:not(:last-child) {
+    display: inline-block;
+
+}
+
+.site-main {
+    grid-area: main;
+    padding: 16px;
+}
+
+.site-main .posts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.site-main .posts article {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: o 1px 5px rgba(0, 0, 0, 0, 15);
+    border: 1px solid #dddddd;
+    display: flex;
+    justify-content:  space-between;
+    flex-direction: column;
+}
+
+.site-main .posts article .thumbnail{
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.site-main .posts article .entry {
+    padding: 16px;
+    margin-bottom: auto;
+}
+
+.site-main .posts article .entry h2 {
+    margin: 0;
+    font: 1.6rem;
+}
+
+.site-main .posts article .entry p {
+    font-size: 1.4rem;
+}
+
+.site-main .posts article .actions {
+    padding: 16px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.site-main .posts article .actions a {
+    text-decoration: none;
+    color: inherit;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    padding: 16px;
+    }
+
+.side-footer {
+    grid-area: footer;
+    text-align: center;
+    padding: 16px;
+}
+
+@media (min-width: 768px) and (max-width 1024px) {
+    .site-main .posts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 1023px) {
+    body {
+        grid-template-areas: "header" "main" "sidebar" "footer";
+        grid-template-columns: 1fr;   
+    }
+
+.site-header ul{
+    flex-basis: 100%;
+    margin-top: 20px;
+}
+
+.site-main .posts {
+    grid-template-columns: 1fr;
+}
